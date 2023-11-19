@@ -57,7 +57,7 @@ console.log(yearsUntilRetirement(1994, "stefan"));
 console.log(yearsUntilRetirement(2000, "avladin"));
 */
 
-
+/*
 function cutFruitPieces(fruit) {
     return fruit * 4;
 }
@@ -74,3 +74,102 @@ function frutiProcessor(apples, oranges) {
 
 
 console.log(frutiProcessor(2, 2));
+
+*/
+
+/*
+const years = new Array(1991, 1985, 2008, 2020);
+console.log(friends[0]);
+console.log(friends[1]);
+console.log(friends[friends.length - 1]);
+
+friends[2] = 'Jay';
+friends[1] = 'Mark';
+friends[3] = 'Stef';
+
+console.log(friends);
+
+const jonas = ['Jonas', 'Shumnt', '2037-1991', "teacher", friends];
+
+console.log(jonas);
+
+
+const cal = function (birthYear) {
+    const age = 2037 - birthYear;
+    return age;
+}
+
+const years1 = [1990, 1967, 2002, 2010, 2018];
+
+years1.forEach(element => {
+    console.log(cal(element));
+});
+
+
+
+const ages1 = [cal(years[1]), cal(years[0]), cal(years[2])];
+console.log(ages1);
+*/
+
+
+const friends = ['Michael', 'Steven', 'Peter'];
+console.log(friends);
+
+friends.push('Jay');
+console.log(friends.length);
+
+friends.unshift('jj');
+console.log(friends);
+
+
+const popped = friends.pop();
+console.log(friends);
+
+
+friends.shift();
+console.log(friends);
+console.log(popped);
+
+
+console.log(friends.indexOf("Steven"));
+console.log(friends.indexOf("Bob"));
+
+
+
+console.log(friends.includes('Steven'));
+console.log(friends.includes('Bob'));
+
+
+friends.push(23);
+console.log(friends.includes('23'));
+console.log(friends.includes(23));
+
+
+if (friends.includes('Peter')) {
+    console.log("Imas frenda druze hehe bravo");
+}
+
+
+
+function CalcTip(bill) {
+
+    if (bill >= 50 && bill <= 300) {
+        console.log('prvi if' + bill);
+        return bill * 0.15;
+    }
+    else {
+        return bill * 0.20;
+    }
+}
+
+
+const Bills = [125, 555, 44];
+
+const Tips = [CalcTip(Bills[0]), CalcTip(Bills[1]), CalcTip(Bills[2])];
+
+const Total = [Bills[0] + Tips[0], Bills[1] + Tips[1], Bills[2] + Tips[2]]
+
+
+console.log(Bills);
+console.log(Tips);
+console.log(Total);
