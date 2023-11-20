@@ -111,6 +111,7 @@ const ages1 = [cal(years[1]), cal(years[0]), cal(years[2])];
 console.log(ages1);
 */
 
+/*
 
 const friends = ['Michael', 'Steven', 'Peter'];
 console.log(friends);
@@ -173,3 +174,98 @@ const Total = [Bills[0] + Tips[0], Bills[1] + Tips[1], Bills[2] + Tips[2]]
 console.log(Bills);
 console.log(Tips);
 console.log(Total);
+*/
+
+/*
+const firstName = 'stef';
+const job = "prog";
+const birthYear = 1994;
+const year = 2023
+
+const stef = `I'm ${firstName}, a ${year - birthYear} years old ${job}`;
+
+console.log(stef);
+*/
+/*
+const age = 19;
+const isOldEnoguh = age >= 18;
+
+if (age >= isOldEnoguh) {
+    console.log(`yup it's old enough`);
+}
+else {
+    console.log(`aham`)
+}
+*/
+
+const stef = {
+    firstName: `Stefan`,
+    lastName: `Stankovic`,
+    birth: 1994,
+    job: `teacher`,
+    friends: [`slob`, `mark`, `stev`],
+
+    /*
+    calcAge: function () {
+        return 2037 - this.birth;
+    }
+    */
+    /*
+    calcAge: function () {
+        console.log(this);
+        return 2037 - this.birth;
+    }
+    */
+
+    calcAge: function () {
+        this.age = 2037 - this.birth;
+        return this.age;
+
+    }
+};
+
+console.log(stef.firstName + ' ' + stef.lastName);
+console.log(stef['lastName']);
+
+const nameKey = 'Name';
+
+console.log(stef['first' + nameKey]);
+console.log(stef['last' + nameKey]);
+
+
+
+stef.location = "Serbia";
+stef['twitter'] = "Twit";
+
+//const intrestedIn = prompt("What do you want to know about Jonas? choose between firstName, lastNAme");
+
+
+//console.log(stef[intrestedIn]);
+
+/*
+if (stef[intrestedIn]) {
+    console.log(stef[intrestedIn]);
+ 
+}
+else {
+    console.log("We don't have that info");
+}
+*/
+
+console.log(`${stef.firstName} has ${stef.friends.length} friends, and his best friend is called ${stef.friends[0]}`);
+
+
+console.log(stef.calcAge());
+console.log(stef['calcAge']());
+
+
+console.log(stef.age);
+console.log(stef);
+
+
+
+
+
+
+
+
