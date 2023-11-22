@@ -197,6 +197,7 @@ else {
     console.log(`aham`)
 }
 */
+/*
 
 const stef = {
     firstName: `Stefan`,
@@ -210,20 +211,21 @@ const stef = {
         return 2037 - this.birth;
     }
     */
-    /*
-    calcAge: function () {
-        console.log(this);
-        return 2037 - this.birth;
-    }
-    */
-
+/*
+calcAge: function () {
+    console.log(this);
+    return 2037 - this.birth;
+}
+*/
+/*
     calcAge: function () {
         this.age = 2037 - this.birth;
         return this.age;
 
     }
 };
-
+*/
+/*
 console.log(stef.firstName + ' ' + stef.lastName);
 console.log(stef['lastName']);
 
@@ -251,7 +253,7 @@ else {
     console.log("We don't have that info");
 }
 */
-
+/*
 console.log(`${stef.firstName} has ${stef.friends.length} friends, and his best friend is called ${stef.friends[0]}`);
 
 
@@ -300,4 +302,54 @@ if (mark.BMI() > John.BMI()) {
 else {
     console.log(`${John.fullName} BMI ${John.BMI()} is higher then ${mark.fullName} BMI ${mark.BMI()}`);
 }
+
+*/
+
+
+for (let rep = 1; rep <= 10; rep++) {
+    console.log(`lifting weights repetition ${rep}`);
+}
+
+
+const years = new Array(1991, 1985, 2008, 2020);
+
+
+for (let i = 0; ; i++) {
+    console.log(years[i])
+
+    if (i == 2)
+        break;
+}
+
+let rep = 1;
+const rend = 89 / 1.9 ** 2;
+while (rep <= 10) {
+    console.log(`cool ${rep} + ${Math.trunc(rend)} ${rend}`)
+    rep++;
+}
+
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+
+function CalcTip(bill) {
+
+    if (bill >= 50 && bill <= 300) {
+
+        return bill * 0.15;
+    }
+    else {
+        return bill * 0.20;
+    }
+}
+
+
+console.log(bills[3]);
+
+let sum = 0;
+for (let i = 0; i < bills.length; i++) {
+    console.log(i + ` ` + CalcTip(bills[i]));
+    sum += bills[i];
+}
+
+console.log(sum / bills.length);
 
