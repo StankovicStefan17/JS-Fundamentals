@@ -1,355 +1,169 @@
+// Remember, we're gonna use strict mode in all scripts now!
 'use strict';
-/*
-let hasDriversLicense = false;
-
-const passTest = true;
-
-if (passTest) hasDriversLicense = true;
-if (hasDriversLicense) console.log(`i can drive :D`);
-
-*/
-/*
-function logger() {
-    console.log(`my name is jonas`);
-}
-
-logger();
-
-
-function frutiProcessor(apples, oranges) {
-    console.log(apples, oranges);
-    const juice = `Juice with ${apples} apples and ${oranges} oranges.`;
-    return juice;
-}
-
-frutiProcessor(5, 10);
-
-console.log(frutiProcessor(2, 2));
-*/
-/*
-function calcAge1(birthYear) {
-    const age = 2037 - birthYear;
-    return age;
-}
-
-console.log(calcAge1(1994));
-
-
-const cal = function (birthYear) {
-    const age = 2037 - birthYear;
-    return age;
-}
-
-console.log(cal(2005));
-*/
-/*
-const calcAge3 = birthYeah => 2037 - birthYeah;
-console.log(calcAge3(1995));
-
-const yearsUntilRetirement = (birthYeah, firstName) => {
-    const age = 2038 - birthYeah;
-    const retirement = 65 - age;
-    return `${firstName} retires in ${retirement} years`;
-}
-
-
-console.log(yearsUntilRetirement(1994, "stefan"));
-console.log(yearsUntilRetirement(2000, "avladin"));
-*/
 
 /*
-function cutFruitPieces(fruit) {
-    return fruit * 4;
-}
+///////////////////////////////////////
+// Using Google, StackOverflow and MDN
 
-function frutiProcessor(apples, oranges) {
-    const applePieces = cutFruitPieces(apples);
-    const orangesPieces = cutFruitPieces(oranges);
+// PROBLEM 1:
+// We work for a company building a smart home thermometer. Our most recent task is this: "Given an array of temperatures of one day, calculate the temperature amplitude. Keep in mind that sometimes there might be a sensor error."
 
+const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
 
-    console.log(apples, oranges);
-    const juice = `Juice with ${applePieces} apples and ${orangesPieces} oranges.`;
-    return juice;
-}
+// 1) Understanding the problem
+// - What is temp amplitude? Answer: difference between highest and lowest temp
+// - How to compute max and min temperatures?
+// - What's a sensor error? And what do do?
 
+// 2) Breaking up into sub-problems
+// - How to ignore errors?
+// - Find max value in temp array
+// - Find min value in temp array
+// - Subtract min from max (amplitude) and return it
 
-console.log(frutiProcessor(2, 2));
+const calcTempAmplitude = function (temps) {
+  let max = temps[0];
+  let min = temps[0];
 
-*/
+  for (let i = 0; i < temps.length; i++) {
+    const curTemp = temps[i];
+    if (typeof curTemp !== 'number') continue;
 
-/*
-const years = new Array(1991, 1985, 2008, 2020);
-console.log(friends[0]);
-console.log(friends[1]);
-console.log(friends[friends.length - 1]);
-
-friends[2] = 'Jay';
-friends[1] = 'Mark';
-friends[3] = 'Stef';
-
-console.log(friends);
-
-const jonas = ['Jonas', 'Shumnt', '2037-1991', "teacher", friends];
-
-console.log(jonas);
-
-
-const cal = function (birthYear) {
-    const age = 2037 - birthYear;
-    return age;
-}
-
-const years1 = [1990, 1967, 2002, 2010, 2018];
-
-years1.forEach(element => {
-    console.log(cal(element));
-});
-
-
-
-const ages1 = [cal(years[1]), cal(years[0]), cal(years[2])];
-console.log(ages1);
-*/
-
-/*
-
-const friends = ['Michael', 'Steven', 'Peter'];
-console.log(friends);
-
-friends.push('Jay');
-console.log(friends.length);
-
-friends.unshift('jj');
-console.log(friends);
-
-
-const popped = friends.pop();
-console.log(friends);
-
-
-friends.shift();
-console.log(friends);
-console.log(popped);
-
-
-console.log(friends.indexOf("Steven"));
-console.log(friends.indexOf("Bob"));
-
-
-
-console.log(friends.includes('Steven'));
-console.log(friends.includes('Bob'));
-
-
-friends.push(23);
-console.log(friends.includes('23'));
-console.log(friends.includes(23));
-
-
-if (friends.includes('Peter')) {
-    console.log("Imas frenda druze hehe bravo");
-}
-
-
-
-function CalcTip(bill) {
-
-    if (bill >= 50 && bill <= 300) {
-        console.log('prvi if' + bill);
-        return bill * 0.15;
-    }
-    else {
-        return bill * 0.20;
-    }
-}
-
-
-const Bills = [125, 555, 44];
-
-const Tips = [CalcTip(Bills[0]), CalcTip(Bills[1]), CalcTip(Bills[2])];
-
-const Total = [Bills[0] + Tips[0], Bills[1] + Tips[1], Bills[2] + Tips[2]]
-
-
-console.log(Bills);
-console.log(Tips);
-console.log(Total);
-*/
-
-/*
-const firstName = 'stef';
-const job = "prog";
-const birthYear = 1994;
-const year = 2023
-
-const stef = `I'm ${firstName}, a ${year - birthYear} years old ${job}`;
-
-console.log(stef);
-*/
-/*
-const age = 19;
-const isOldEnoguh = age >= 18;
-
-if (age >= isOldEnoguh) {
-    console.log(`yup it's old enough`);
-}
-else {
-    console.log(`aham`)
-}
-*/
-/*
-
-const stef = {
-    firstName: `Stefan`,
-    lastName: `Stankovic`,
-    birth: 1994,
-    job: `teacher`,
-    friends: [`slob`, `mark`, `stev`],
-
-    /*
-    calcAge: function () {
-        return 2037 - this.birth;
-    }
-    */
-/*
-calcAge: function () {
-    console.log(this);
-    return 2037 - this.birth;
-}
-*/
-/*
-    calcAge: function () {
-        this.age = 2037 - this.birth;
-        return this.age;
-
-    }
+    if (curTemp > max) max = curTemp;
+    if (curTemp < min) min = curTemp;
+  }
+  console.log(max, min);
+  return max - min;
 };
-*/
-/*
-console.log(stef.firstName + ' ' + stef.lastName);
-console.log(stef['lastName']);
+const amplitude = calcTempAmplitude(temperatures);
+console.log(amplitude);
 
-const nameKey = 'Name';
+// PROBLEM 2:
+// Function should now receive 2 arrays of temps
 
-console.log(stef['first' + nameKey]);
-console.log(stef['last' + nameKey]);
+// 1) Understanding the problem
+// - With 2 arrays, should we implement functionality twice? NO! Just merge two arrays
 
+// 2) Breaking up into sub-problems
+// - Merge 2 arrays
 
+const calcTempAmplitudeNew = function (t1, t2) {
+  const temps = t1.concat(t2);
+  console.log(temps);
 
-stef.location = "Serbia";
-stef['twitter'] = "Twit";
+  let max = temps[0];
+  let min = temps[0];
 
-//const intrestedIn = prompt("What do you want to know about Jonas? choose between firstName, lastNAme");
+  for (let i = 0; i < temps.length; i++) {
+    const curTemp = temps[i];
+    if (typeof curTemp !== 'number') continue;
 
-
-//console.log(stef[intrestedIn]);
-
-/*
-if (stef[intrestedIn]) {
-    console.log(stef[intrestedIn]);
- 
-}
-else {
-    console.log("We don't have that info");
-}
-*/
-/*
-console.log(`${stef.firstName} has ${stef.friends.length} friends, and his best friend is called ${stef.friends[0]}`);
-
-
-console.log(stef.calcAge());
-console.log(stef['calcAge']());
-
-
-console.log(stef.age);
-console.log(stef);
-
-
-
-
-
-const mark = {
-    fullName: `Mark`,
-    mass: 78,
-    height: 1.69,
-
-
-    BMI: function () {
-        this.bmi = this.mass / this.height ** 2;
-        return this.bmi;
-    }
+    if (curTemp > max) max = curTemp;
+    if (curTemp < min) min = curTemp;
+  }
+  console.log(max, min);
+  return max - min;
 };
+const amplitudeNew = calcTempAmplitudeNew([3, 5, 1], [9, 0, 5]);
+console.log(amplitudeNew);
 
 
+///////////////////////////////////////
+// Debugging with the Console and Breakpoints
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'celsius',
 
-const John = {
-    fullName: `John`,
-    mass: 92,
-    height: 1.95,
+    // C) FIX
+    // value: Number(prompt('Degrees celsius:')),
+    value: 10,
+  };
 
+  // B) FIND
+  console.table(measurement);
 
-    BMI: function () {
-        this.bmi = this.mass / this.height ** 2;
-        return this.bmi;
-    }
+  // console.log(measurement.value);
+  // console.warn(measurement.value);
+  // console.error(measurement.value);
+
+  const kelvin = measurement.value + 273;
+  return kelvin;
 };
+// A) IDENTIFY
+console.log(measureKelvin());
 
+// Using a debugger
+const calcTempAmplitudeBug = function (t1, t2) {
+  const temps = t1.concat(t2);
+  console.log(temps);
 
+  let max = 0;
+  let min = 0;
 
-if (mark.BMI() > John.BMI()) {
-    console.log(`${mark.fullName} BMI ${mark.bmi} is higher then ${John.fullName} BMI ${John.bmi}`);
-}
-else {
-    console.log(`${John.fullName} BMI ${John.BMI()} is higher then ${mark.fullName} BMI ${mark.BMI()}`);
-}
+  for (let i = 0; i < temps.length; i++) {
+    const curTemp = temps[i];
+    if (typeof curTemp !== 'number') continue;
 
+    if (curTemp > max) max = curTemp;
+    if (curTemp < min) min = curTemp;
+  }
+  console.log(max, min);
+  return max - min;
+};
+const amplitudeBug = calcTempAmplitudeBug([3, 5, 1], [9, 4, 5]);
+// A) IDENTIFY
+console.log(amplitudeBug);
 */
 
+///////////////////////////////////////
+// Coding Challenge #1
 
-for (let rep = 1; rep <= 10; rep++) {
-    console.log(`lifting weights repetition ${rep}`);
-}
+/*
+Given an array of forecasted maximum temperatures, the thermometer displays a string with these temperatures.
 
+Example: [17, 21, 23] will print "... 17ºC in 1 days ... 21ºC in 2 days ... 23ºC in 3 days ..."
 
-const years = new Array(1991, 1985, 2008, 2020);
+Create a function 'printForecast' which takes in an array 'arr' and logs a string like the above to the console.
 
+Use the problem-solving framework: Understand the problem and break it up into sub-problems!
 
-for (let i = 0; ; i++) {
-    console.log(years[i])
+TEST DATA 1: [17, 21, 23]
+TEST DATA 2: [12, 5, -5, 0, 4]
+*/
 
-    if (i == 2)
-        break;
-}
+/*
+// 1) Understanding the problem
+// - Array transformed to string, separated by ...
+// - What is the X days? Answer: index + 1
 
-let rep = 1;
-const rend = 89 / 1.9 ** 2;
-while (rep <= 10) {
-    console.log(`cool ${rep} + ${Math.trunc(rend)} ${rend}`)
-    rep++;
-}
+// 2) Breaking up into sub-problems
+// - Transform array into string
+// - Transform each element to string with ºC
+// - Strings needs to contain day (index + 1)
+// - Add ... between elements and start and end of string
+// - Log string to console
 
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
 
-const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+console.log(`... ${data1[0]}ºC ... ${data1[1]}ºC ... ${data1[2]}ºC ...`);
 
-function CalcTip(bill) {
+const printForecast = function (arr) {
+  let str = '';
+  for (let i = 0; i < arr.length; i++) {
+    str += `${arr[i]}ºC in ${i + 1} days ... `;
+  }
+  console.log('...' + str);
+};
+printForecast(data1);
+*/
 
-    if (bill >= 50 && bill <= 300) {
+const x = 23;
+if (x == 23) console.log(23);
 
-        return bill * 0.15;
-    }
-    else {
-        return bill * 0.20;
-    }
-}
+console.log(`avion`);
+console.log(`av`);
+console.log(`avion`);
 
-
-console.log(bills[3]);
-
-let sum = 0;
-for (let i = 0; i < bills.length; i++) {
-    console.log(i + ` ` + CalcTip(bills[i]));
-    sum += bills[i];
-}
-
-console.log(sum / bills.length);
-
+const calcAge = birthYhear => 2037 - birthYhear;
