@@ -167,3 +167,5 @@ console.log(`av`);
 console.log(`avion`);
 
 const calcAge = birthYhear => 2037 - birthYhear;
+
+// LIstening lecture 006
