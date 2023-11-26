@@ -158,7 +158,7 @@ const printForecast = function (arr) {
 };
 printForecast(data1);
 */
-
+/*
 const x = 23;
 if (x == 23) console.log(23);
 
@@ -197,3 +197,66 @@ console.log(amplitude);
 const mergedTemps = temperatures.concat(temperatures1);
 
 console.log(calcTempAmplitude(mergedTemps));
+*/
+/*
+const measureKelvin = function () {
+  const measurement = {
+    type: `temp`,
+    unit: `celsius`,
+    //value: Number(prompt(`Degrees celsius:`)),
+    value: 10,
+  };
+
+  //console.log(measurement.value);
+  // console.warn(measurement.value);
+  //  console.error(measurement.value);
+  console.table(measurement);
+  const kelvin = measurement.value + 273;
+  return kelvin;
+};
+
+console.log(measureKelvin());
+
+const calcTempAmplitudeBug = function (temps) {
+  let max = temps[2];
+  let min = temps[0];
+
+  for (let i = 0; i < temps.length; i++) {
+    const curTemp = temps[i];
+
+    if (typeof curTemp !== 'number') continue;
+
+    if (curTemp > max) max = curTemp;
+    if (curTemp < min) min = curTemp;
+  }
+
+  console.log(max, min);
+  return max - min;
+};
+
+const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
+
+const temperatures1 = [5, -4, -3, -1, 'error', 9, 13, 17, 15, 14, 25, 5];
+
+debugger;
+console.log(calcTempAmplitudeBug(temperatures));
+*/
+
+//Challenge 10
+
+const arrData1 = [17, 21, 23];
+const arrData2 = [12, 5, -5, 0, 4];
+
+arrData1.length;
+
+const printForecast = function (arr) {
+  let str = ``;
+  for (let i = 0; i < arr.length; i++) {
+    str += `${arr[i]}℃ in ${i + 1} days ...`;
+  }
+  console.log(`...` + str);
+};
+
+printForecast(arrData1);
+console.log(`---------`);
+printForecast(arrData2);
