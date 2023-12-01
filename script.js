@@ -7,7 +7,6 @@ const btnsOpenModel = document.querySelectorAll(`.show-modal`);
 console.log(btnsOpenModel);
 
 const openModel = function () {
-  console.log(`button clicked`);
   modal.classList.remove(`hidden`);
   overlay.classList.remove(`hidden`);
 };
@@ -24,3 +23,11 @@ const resetBackOverlays = function () {
 btnCloseModel.addEventListener(`click`, resetBackOverlays);
 
 overlay.addEventListener(`click`, resetBackOverlays);
+
+document.addEventListener(`keydown`, function (e) {
+  console.log(e);
+  if (e.key === `Escape` && !modal.classList.contains(`hidden`)) {
+    resetBackOverlays();
+    console.log(`bravo`);
+  }
+});
