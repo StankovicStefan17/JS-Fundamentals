@@ -7,7 +7,7 @@
 // var me = `Jonas`;
 // let job = `teacher`;
 // const year = 1994;
-
+/*
 console.log(this);
 
 const birthYear = 5;
@@ -52,3 +52,33 @@ let oldAge = age;
 age = 31;
 console.log(age);
 console.log(oldAge);
+*/
+
+const jessica = {
+  firstName: `Jessica`,
+  lastName: `Williams`,
+  age: 27,
+};
+
+const merriedJessica = jessica;
+merriedJessica.lastName = `Davis`;
+
+// console.log(`before marrage:`, jessica);
+// console.log(`after marrage:`, merriedJessica);
+
+const jessica2 = {
+  firstName: `Jessica`,
+  lastName: `Williams`,
+  age: 27,
+  family: [`alice`, `katrin`],
+};
+
+const jessica3 = Object.assign({}, jessica2);
+
+jessica3.lastName = `Avci`;
+
+console.log(`before marrage:`, jessica2);
+console.log(`after marrage:`, jessica3);
+
+jessica3.family.push(`avi`);
+jessica3.family.push(`oldi`);
