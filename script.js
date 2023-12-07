@@ -1,84 +1,61 @@
 'use strict';
 
-// console.log(me);
-// console.log(job);
-// console.log(year);
+// Data needed for a later exercise
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-// var me = `Jonas`;
-// let job = `teacher`;
-// const year = 1994;
-/*
-console.log(this);
+// Data needed for first part of the section
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-const birthYear = 5;
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
 
-const calcAge = birthYear => {
-  const birthYear1 = this.birthYear;
-  console.log(`in function ${birthYear1}`);
-};
-
-calcAge(10);
-
-const jonas = {
-  year: 1994,
-  cacl: function (year) {
-    console.log(year);
-    console.log(this.year);
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 };
 
-jonas.cacl(10);
+// const arr = [2, 3, 4];
 
-const matilda = {
-  year: 2017,
-};
+// const [a, b, c] = arr;
+// console.log(a, b, c);
 
-matilda.cacl = jonas.cacl;
-matilda.cacl();
+// let [first, second] = restaurant.categories;
+// console.log(first, second);
 
-const addExp = function (a, b) {
-  console.log(arguments);
-  let res = 0;
-  for (let i = 0; i < arguments.length; i++) {
-    res += arguments[i];
-  }
-  return res;
-};
+// const [, , third, forth] = restaurant.categories;
 
-console.log(addExp(2, 6, 5, 10, 5, 9, 8, 20, 5));
+// console.log(third, forth);
 
-let age = 30;
-let oldAge = age;
-age = 31;
-console.log(age);
-console.log(oldAge);
-*/
+// [second, first] = [first, second];
+// console.log(first, second);
 
-const jessica = {
-  firstName: `Jessica`,
-  lastName: `Williams`,
-  age: 27,
-};
+const [main, starter] = restaurant.order(2, 0);
+console.log(main, starter);
 
-const merriedJessica = jessica;
-merriedJessica.lastName = `Davis`;
+const nested = [2, 4, [5, 6]];
+const [i, , j] = nested;
+console.log(i, j);
 
-// console.log(`before marrage:`, jessica);
-// console.log(`after marrage:`, merriedJessica);
+const [c, , [b, a]] = nested;
+console.log(c, b, a);
 
-const jessica2 = {
-  firstName: `Jessica`,
-  lastName: `Williams`,
-  age: 27,
-  family: [`alice`, `katrin`],
-};
-
-const jessica3 = Object.assign({}, jessica2);
-
-jessica3.lastName = `Avci`;
-
-console.log(`before marrage:`, jessica2);
-console.log(`after marrage:`, jessica3);
-
-jessica3.family.push(`avi`);
-jessica3.family.push(`oldi`);
+const [z = 1, s = 1, r = 1] = [9];
+console.log(z, s, r);
