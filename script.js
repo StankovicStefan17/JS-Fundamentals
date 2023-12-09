@@ -32,14 +32,22 @@ const restaurant = {
   },
 
   orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
-    console.log(
-      `Order recived! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
-    );
+    // console.log(
+    //   `Order recived! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    // );
   },
   OrderPasta: function (ing1, ing2, ing3) {
-    console.log(
-      `Here os your declicious pasta with ${ing1},${ing2} and ${ing3}`
-    );
+    // console.log(
+    //   `Here os your declicious pasta with ${ing1},${ing2} and ${ing3}`
+    // );
+  },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient, otherIngredients);
+
+    const [...ingredients1] = [mainIngredient, ...otherIngredients];
+
+    console.log(ingredients1);
   },
 };
 
@@ -49,6 +57,44 @@ restaurant.orderDelivery({
   mainIndex: 2,
   starterIndex: 2,
 });
+//1)destructuring
+//REST
+
+restaurant.orderPizza(`mash`, `onin`, `oliv`, `spince`);
+
+restaurant.orderPizza(`mush`);
+
+const arr1 = [1, 2, ...[3, 4]];
+
+const [a1, b1, ...others] = [1, 2, 3, 4, 5];
+console.log(a1, b1, others);
+
+const [pizza, , ristoto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(pizza, ristoto, otherFood);
+
+//Objects
+
+const { sat, ...weekDays } = restaurant.openingHours;
+console.log(weekDays);
+
+// 2)functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+
+  console.log(sum);
+};
+
+add(2, 3);
+add(5, 4, 6, 7);
+
+const x = [23, 5, 7];
+add(...x);
+
 // const arr = [2, 3, 4];
 
 // const [a, b, c] = arr;
@@ -77,77 +123,77 @@ restaurant.orderDelivery({
 // const [z = 1, s = 1, r = 1] = [9];
 // console.log(z, s, r);
 
-const { name, categories, openingHours } = restaurant;
-console.log(name, categories, openingHours);
+// const { name, categories, openingHours } = restaurant;
+// console.log(name, categories, openingHours);
 
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
 
-console.log(restaurantName, categories, tags);
+// console.log(restaurantName, categories, tags);
 
-const { menu = [], starterMenu: starter = [] } = restaurant;
+// const { menu = [], starterMenu: starter = [] } = restaurant;
 
-console.log(menu, starter);
+// console.log(menu, starter);
 
-//mutating variables
-let a = 111;
-let b = 999;
+// //mutating variables
+// let a = 111;
+// let b = 999;
 
-const obj = { a: 23, b: 7, c: 14 };
+// const obj = { a: 23, b: 7, c: 14 };
 
-({ a, b } = obj);
-console.log(a, b);
+// ({ a, b } = obj);
+// console.log(a, b);
 
-//nested objects;
+// //nested objects;
 
-const {
-  fri: { open: o, close: c },
-} = openingHours;
-console.log(o, c);
+// const {
+//   fri: { open: o, close: c },
+// } = openingHours;
+// console.log(o, c);
 
-const arr = [7, 8, 9];
+// const arr = [7, 8, 9];
 
-const newGoodArray = [1, 2, ...arr];
-console.log(newGoodArray);
+// const newGoodArray = [1, 2, ...arr];
+// console.log(newGoodArray);
 
-console.log(...newGoodArray);
+// console.log(...newGoodArray);
 
-const newMenu = [...restaurant.mainMenu, `Gnocci`];
-console.log(newMenu);
+// const newMenu = [...restaurant.mainMenu, `Gnocci`];
+// console.log(newMenu);
 
-//copyArray
+// //copyArray
 
-const mainMenuCopy = [...restaurant.mainMenu];
+// const mainMenuCopy = [...restaurant.mainMenu];
 
-const menu1 = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// const menu1 = [...restaurant.mainMenu, ...restaurant.starterMenu];
 
-console.log(menu1);
+// console.log(menu1);
 
-const str = `Stefan`;
-console.log(...str);
+// const str = `Stefan`;
+// console.log(...str);
 
-// const ingredients = [
-//   prompt(`Let\'s make pasta!
-// Infredient 1?`),
-//   prompt(`Let\'s make pasta!
-// Infredient 2?`),
-//   prompt(`Let\'s make pasta!
-// Infredient 3?`),
-// ];
+// // const ingredients = [
+// //   prompt(`Let\'s make pasta!
+// // Infredient 1?`),
+// //   prompt(`Let\'s make pasta!
+// // Infredient 2?`),
+// //   prompt(`Let\'s make pasta!
+// // Infredient 3?`),
+// // ];
 
-// restaurant.OrderPasta(...ingredients);
+// // restaurant.OrderPasta(...ingredients);
 
-//objects
+// //objects
 
-const newResturant = { ...restaurant, founder: `Guiseppe` };
+// const newResturant = { ...restaurant, founder: `Guiseppe` };
 
-console.log(newResturant);
+// console.log(newResturant);
 
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = `Rist`;
+// const restaurantCopy = { ...restaurant };
+// restaurantCopy.name = `Rist`;
 
-console.log(restaurant.name);
-console.log(restaurantCopy.name);
+// console.log(restaurant.name);
+// console.log(restaurantCopy.name);
