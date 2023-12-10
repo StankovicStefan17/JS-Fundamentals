@@ -197,3 +197,30 @@ add(...x);
 
 // console.log(restaurant.name);
 // console.log(restaurantCopy.name);
+
+// Use ANY date type, return ANY date type, short-circuting
+console.log(3 || `Jones`);
+console.log(`` || `Jones`);
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || `` || `hello` || 23 || null);
+
+restaurant.numGuests = 23;
+
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest1);
+
+const guest2 = restaurant.numGuests || 10;
+console.log(guest2);
+
+console.log(`--------AND--------`);
+console.log(0 && `jhonas`);
+console.log(7 && `jhonas`);
+
+console.log(`hello` && 23 && null && `jhones`);
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza(`,asjrp,`, `mashroum`);
+}
+
+restaurant.OrderPasta && restaurant.orderPizza(`,asjrp,`, `mashroum`);
