@@ -43,11 +43,11 @@ const restaurant = {
   },
 
   orderPizza: function (mainIngredient, ...otherIngredients) {
-    console.log(mainIngredient, otherIngredients);
+    // console.log(mainIngredient, otherIngredients);
 
     const [...ingredients1] = [mainIngredient, ...otherIngredients];
 
-    console.log(ingredients1);
+    //console.log(ingredients1);
   },
 };
 
@@ -67,26 +67,26 @@ restaurant.orderPizza(`mush`);
 const arr1 = [1, 2, ...[3, 4]];
 
 const [a1, b1, ...others] = [1, 2, 3, 4, 5];
-console.log(a1, b1, others);
+//console.log(a1, b1, others);
 
 const [pizza, , ristoto, ...otherFood] = [
   ...restaurant.mainMenu,
   ...restaurant.starterMenu,
 ];
 
-console.log(pizza, ristoto, otherFood);
+//console.log(pizza, ristoto, otherFood);
 
 //Objects
 
 const { sat, ...weekDays } = restaurant.openingHours;
-console.log(weekDays);
+//console.log(weekDays);
 
 // 2)functions
 const add = function (...numbers) {
   let sum = 0;
   for (let i = 0; i < numbers.length; i++) sum += numbers[i];
 
-  console.log(sum);
+  //console.log(sum);
 };
 
 add(2, 3);
@@ -199,28 +199,62 @@ add(...x);
 // console.log(restaurantCopy.name);
 
 // Use ANY date type, return ANY date type, short-circuting
-console.log(3 || `Jones`);
-console.log(`` || `Jones`);
-console.log(true || 0);
-console.log(undefined || null);
-console.log(undefined || 0 || `` || `hello` || 23 || null);
 
-restaurant.numGuests = 23;
+// console.log(3 || `Jones`);
+// console.log(`` || `Jones`);
+// console.log(true || 0);
+// console.log(undefined || null);
+// console.log(undefined || 0 || `` || `hello` || 23 || null);
 
-const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log(guest1);
+// restaurant.numGuests = 23;
 
+// const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guest1);
+
+// const guest2 = restaurant.numGuests || 10;
+// console.log(guest2);
+
+// console.log(`--------AND--------`);
+// console.log(0 && `jhonas`);
+// console.log(7 && `jhonas`);
+
+// console.log(`hello` && 23 && null && `jhones`);
+
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza(`,asjrp,`, `mashroum`);
+// }
+
+// restaurant.OrderPasta && restaurant.orderPizza(`,asjrp,`, `mashroum`);
+
+restaurant.numGuests = 0;
+console.log(restaurant.numGuests);
 const guest2 = restaurant.numGuests || 10;
 console.log(guest2);
 
-console.log(`--------AND--------`);
-console.log(0 && `jhonas`);
-console.log(7 && `jhonas`);
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
 
-console.log(`hello` && 23 && null && `jhones`);
+const rest1 = {
+  name: `Capri`,
+  numGuests: 0,
+};
 
-if (restaurant.orderPizza) {
-  restaurant.orderPizza(`,asjrp,`, `mashroum`);
-}
+const rest2 = {
+  name: `La Piazza`,
+  owner: `Giovanni Rossi`,
+};
 
-restaurant.OrderPasta && restaurant.orderPizza(`,asjrp,`, `mashroum`);
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// rest1.owner = rest1.owner && `<ANON>`;
+// rest2.owner = rest2.owner && `<ANON>`;
+
+rest1.owner &&= `<ANON>`;
+rest2.owner &&= `<ANON>`;
+
+console.log(rest1);
+console.log(rest2);
