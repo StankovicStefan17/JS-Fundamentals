@@ -509,6 +509,16 @@ const game = {
   },
 };
 
+//DESTRUCTURING OBJECTS:
+const { players, scored, odds } = game;
+
+console.log('---' + players, scored, odds);
+
+//THE SPREAD OPERATOR
+
+const players1 = [...players];
+console.log(players1);
+
 /*
 // 1.
 for (const [i, player] of game.scored.entries())
