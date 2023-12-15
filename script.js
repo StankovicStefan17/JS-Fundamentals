@@ -814,6 +814,7 @@ restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
 
+////Teory lection
 
 ///////////////////////////////////////
 // Destructuring Objects
@@ -905,12 +906,13 @@ const openingHours = {
     open: 11,
     close: 23,
   },
-  [weekdays[5]]: {
+  [`day-${2 + 4}`]: {
     open: 0, // Open 24 hours
     close: 24,
   },
 };
 
+console.log(openingHours);
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -953,4 +955,4 @@ for (const [i, el] of menu.entries()) {
 
 console.log([...menu.entries()]);
 
-console.log();
+console.log(restaurant);
