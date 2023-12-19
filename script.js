@@ -127,7 +127,7 @@ const game = {
     team2: 6.5,
   },
 };
-
+//  moja resenja
 for (const [goal, player] of game.scored.entries()) {
   console.log(`Goal ${goal + 1}: ${player}`);
 }
@@ -145,6 +145,7 @@ console.log(avrageOdds);
 avrageOdds /= number.length;
 console.log(avrageOdds);
 
+//3. nije bas najboje
 const team1 = 'team1';
 const team2 = 'team2';
 const draw = 'x';
@@ -152,3 +153,75 @@ const draw = 'x';
 console.log(`Odd of victory ${game[team1]}: ${game.odds[team1]}
 Odd of draw: ${game.odds[draw]}
 Odd of victory ${game[team2]}: ${game.odds[team2]}`);
+
+//3: njegovo resenje;
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+
+  console.log(`Odd of ${teamStr} ${odd}`);
+}
+
+// const scorers = {};
+// const playersAlreayScored = { PAS, numGoals: 0 };
+
+// const scorers = { player: 20, player2: 30 };
+
+// // scorers = [{ player3: 20 }, ...scorers];
+// scorers.player3 = 40;
+// console.log(scorers);
+
+// for (const [player] of game.scored) {
+//   //   if(playersAlreayScored>0)
+//   //   {
+//   //     for(const [PAS] of playersAlreayScored)
+//   //   {
+//   //     if(PAS === player)
+//   //         playersAlreayScored.numGoals +=1
+//   //   };
+//   // }
+//   //   else
+//   //   {
+//   //   }
+// }
+
+// for (const scorers1 of Object.keys(scored)) {
+// }
+
+// // njegova resenja
+
+// for (const player of game.scored) {
+//   console.log('Ulazak');
+//   for (const object of Object.keys(scorers)) {
+//     console.log('Ulazak');
+//     console.log(object);
+//     console.log(player);
+//     if (player == object) {
+//       console.log(object);
+//       scorers[player] += 1;
+//     } else {
+//       scorers[player] = 1;
+//     }
+//   }
+// }
+// const playerscored = Object.values(game.scored);
+
+// for (const [i, play] of playerscored.entries()) {
+//   console.log(i);
+//   if (scorers[play] == play) {
+//     scorers[play] += 1;
+//   } else {
+//     scorers[play] = 1;
+//   }
+// }
+
+// console.log(``);
+// console.log('playerscored ' + playerscored);
+
+// console.log('scorers ' + scorers);
+// console.log(Object.keys(scorers));
+// console.log(Object.values(scorers));
+const scorers = {};
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+console.log('scorers ' + Object.keys(scorers) + Object.values(scorers));
