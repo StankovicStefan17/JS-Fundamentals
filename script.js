@@ -220,8 +220,32 @@ for (const [team, odd] of Object.entries(game.odds)) {
 // console.log('scorers ' + scorers);
 // console.log(Object.keys(scorers));
 // console.log(Object.values(scorers));
-const scorers = {};
-for (const player of game.scored) {
-  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
-}
-console.log('scorers ' + Object.keys(scorers) + Object.values(scorers));
+// const scorers = {};
+// for (const player of game.scored) {
+//   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+// }
+// console.log('scorers ' + Object.keys(scorers) + Object.values(scorers));
+
+const ordersSet = new Set(['Pasta', 'pica', 'Pasta', 'rizoto']);
+
+console.log(ordersSet);
+
+console.log(new Set('Stefan'));
+
+console.log(ordersSet.size);
+console.log(ordersSet.has('pica'));
+console.log(ordersSet.has('pica1'));
+ordersSet.add('bread');
+ordersSet.delete('rizoto');
+
+console.log(ordersSet);
+
+for (const order of ordersSet) console.log(order);
+
+// Example;
+
+const staff = ['Waiter', 'Chef', 'Waiter', 'Chef', 'Manager'];
+
+const staffSet = [...new Set(staff)];
+console.log(staffSet);
+console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Chef', 'Manager']).size);
