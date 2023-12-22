@@ -4,20 +4,20 @@
 // const flights =
 //   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-// const openingHours = {
-//   thu: {
-//     open: 12,
-//     close: 22,
-//   },
-//   fri: {
-//     open: 11,
-//     close: 23,
-//   },
-//   sat: {
-//     open: 0, // Open 24 hours
-//     close: 24,
-//   },
-// };
+const openingHours = {
+  thu: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
 
 // // Data needed for first part of the section
 // const restaurant = {
@@ -87,79 +87,79 @@
 //   console.log(`On ${key} we open at ${open} and close at ${close}`);
 // }
 
-const game = {
-  team1: 'Bayern Munich',
-  team2: 'Borrussia Dortmund',
-  players: [
-    [
-      'Neuer',
-      'Pavard',
-      'Martinez',
-      'Alaba',
-      'Davies',
-      'Kimmich',
-      'Goretzka',
-      'Coman',
-      'Muller',
-      'Gnarby',
-      'Lewandowski',
-    ],
-    [
-      'Burki',
-      'Schulz',
-      'Hummels',
-      'Akanji',
-      'Hakimi',
-      'Weigl',
-      'Witsel',
-      'Hazard',
-      'Brandt',
-      'Sancho',
-      'Gotze',
-    ],
-  ],
-  score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
-  date: 'Nov 9th, 2037',
-  odds: {
-    team1: 1.33,
-    x: 3.25,
-    team2: 6.5,
-  },
-};
-//  moja resenja
-for (const [goal, player] of game.scored.entries()) {
-  console.log(`Goal ${goal + 1}: ${player}`);
-}
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
+// //  moja resenja
+// for (const [goal, player] of game.scored.entries()) {
+//   console.log(`Goal ${goal + 1}: ${player}`);
+// }
 
-let avrageOdds = 0;
-//console.log(game.odds);
-for (const odd of Object.values(game.odds)) {
-  console.log(odd);
-  avrageOdds += odd;
-  console.log(avrageOdds);
-}
-let number = Object.keys(game.odds);
-console.log(number.length);
-console.log(avrageOdds);
-avrageOdds /= number.length;
-console.log(avrageOdds);
+// let avrageOdds = 0;
+// //console.log(game.odds);
+// for (const odd of Object.values(game.odds)) {
+//   console.log(odd);
+//   avrageOdds += odd;
+//   console.log(avrageOdds);
+// }
+// let number = Object.keys(game.odds);
+// console.log(number.length);
+// console.log(avrageOdds);
+// avrageOdds /= number.length;
+// console.log(avrageOdds);
 
-//3. nije bas najboje
-const team1 = 'team1';
-const team2 = 'team2';
-const draw = 'x';
+// //3. nije bas najboje
+// const team1 = 'team1';
+// const team2 = 'team2';
+// const draw = 'x';
 
-console.log(`Odd of victory ${game[team1]}: ${game.odds[team1]}
-Odd of draw: ${game.odds[draw]}
-Odd of victory ${game[team2]}: ${game.odds[team2]}`);
+// console.log(`Odd of victory ${game[team1]}: ${game.odds[team1]}
+// Odd of draw: ${game.odds[draw]}
+// Odd of victory ${game[team2]}: ${game.odds[team2]}`);
 
-//3: njegovo resenje;
-for (const [team, odd] of Object.entries(game.odds)) {
-  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+// //3: njegovo resenje;
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
 
-  console.log(`Odd of ${teamStr} ${odd}`);
-}
+//   console.log(`Odd of ${teamStr} ${odd}`);
+// }
 
 // const scorers = {};
 // const playersAlreayScored = { PAS, numGoals: 0 };
@@ -290,3 +290,38 @@ console.log(rest.get(arr));
 
 rest.set(document.querySelector('h1'), 'Heading');
 console.log(rest);
+
+const question = new Map([
+  ['question', 'what is the best programing language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct'],
+  [false, 'Try Again'],
+]);
+
+console.log(question);
+
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+
+console.log(hoursMap);
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key == 'number') console.log(`answer ${key}: ${value}`);
+}
+
+// const answer = Number(prompt(`Your answer`));
+// console.log(answer);
+
+// console.log(question.get(answer === question.get('correct')));
+
+// console.log(answer === question.get('correct'));
+
+// convert map to array
+
+console.log([...question]);
+console.log(question.entries());
+console.log(...question.keys());
+console.log(...question.values());
