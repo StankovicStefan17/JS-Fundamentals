@@ -4,20 +4,20 @@
 // const flights =
 //   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-const openingHours = {
-  thu: {
-    open: 12,
-    close: 22,
-  },
-  fri: {
-    open: 11,
-    close: 23,
-  },
-  sat: {
-    open: 0, // Open 24 hours
-    close: 24,
-  },
-};
+// const openingHours = {
+//   thu: {
+//     open: 12,
+//     close: 22,
+//   },
+//   fri: {
+//     open: 11,
+//     close: 23,
+//   },
+//   sat: {
+//     open: 0, // Open 24 hours
+//     close: 24,
+//   },
+// };
 
 // // Data needed for first part of the section
 // const restaurant = {
@@ -250,67 +250,67 @@ const openingHours = {
 // console.log(staffSet);
 // console.log(new Set(['Waiter', 'Chef', 'Waiter', 'Chef', 'Manager']).size);
 
-const rest = new Map();
+// const rest = new Map();
 
-rest.set('name', 'calsicco');
-rest.set(1, 'firenze');
-rest.set(2, 'lisabon');
+// rest.set('name', 'calsicco');
+// rest.set(1, 'firenze');
+// rest.set(2, 'lisabon');
 
-console.log(rest);
+// console.log(rest);
 
-rest
-  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
-  .set('open', 11)
-  .set('close', 23)
-  .set(true, 'We are open')
-  .set(false, 'we are closed');
+// rest
+//   .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+//   .set('open', 11)
+//   .set('close', 23)
+//   .set(true, 'We are open')
+//   .set(false, 'we are closed');
 
-console.log(rest.get('name'));
-console.log(rest.get(true));
-console.log(rest.get(1));
+// console.log(rest.get('name'));
+// console.log(rest.get(true));
+// console.log(rest.get(1));
 
-const time = 21;
+// const time = 21;
 
-// rest.get(time > rest.get(open) && time < rest.get('close'));
-console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+// // rest.get(time > rest.get(open) && time < rest.get('close'));
+// console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
 
-console.log(rest.has('categories'));
-rest.delete(2);
-console.log(rest);
-console.log(rest.size);
-rest.clear();
-console.log(rest.size);
+// console.log(rest.has('categories'));
+// rest.delete(2);
+// console.log(rest);
+// console.log(rest.size);
+// rest.clear();
+// console.log(rest.size);
 
-const arr = [1, 2];
-rest.set(arr, 'test');
-console.log(rest);
+// const arr = [1, 2];
+// rest.set(arr, 'test');
+// console.log(rest);
 
-rest.get([1, 2]);
-console.log(rest.get(arr));
+// rest.get([1, 2]);
+// console.log(rest.get(arr));
 
-rest.set(document.querySelector('h1'), 'Heading');
-console.log(rest);
+// rest.set(document.querySelector('h1'), 'Heading');
+// console.log(rest);
 
-const question = new Map([
-  ['question', 'what is the best programing language in the world?'],
-  [1, 'C'],
-  [2, 'Java'],
-  [3, 'JavaScript'],
-  ['correct', 3],
-  [true, 'Correct'],
-  [false, 'Try Again'],
-]);
+// const question = new Map([
+//   ['question', 'what is the best programing language in the world?'],
+//   [1, 'C'],
+//   [2, 'Java'],
+//   [3, 'JavaScript'],
+//   ['correct', 3],
+//   [true, 'Correct'],
+//   [false, 'Try Again'],
+// ]);
 
-console.log(question);
+// console.log(question);
 
-console.log(Object.entries(openingHours));
-const hoursMap = new Map(Object.entries(openingHours));
+// console.log(Object.entries(openingHours));
+// const hoursMap = new Map(Object.entries(openingHours));
 
-console.log(hoursMap);
-console.log(question.get('question'));
-for (const [key, value] of question) {
-  if (typeof key == 'number') console.log(`answer ${key}: ${value}`);
-}
+// console.log(hoursMap);
+// console.log(question.get('question'));
+// for (const [key, value] of question) {
+//   if (typeof key == 'number') console.log(`answer ${key}: ${value}`);
+// }
 
 // const answer = Number(prompt(`Your answer`));
 // console.log(answer);
@@ -321,7 +321,107 @@ for (const [key, value] of question) {
 
 // convert map to array
 
-console.log([...question]);
-console.log(question.entries());
-console.log(...question.keys());
-console.log(...question.values());
+// console.log([...question]);
+// console.log(question.entries());
+// console.log(...question.keys());
+// console.log(...question.values());
+
+//simple LIst > Arrays or Sets
+// Key/values > object or maps;
+
+/*
+1. Create an array 'events' of the different game events that happened (no duplicates)
+2. After the game has finished, is was found that the yellow card from minute 64 was unfair. So remove this event from the game events log.
+3. Print the following string to the console: "An event happened, on average, every 9 minutes" (keep in mind that a game has 90 minutes)
+4. Loop over the events and log them to the console, marking whether it's in the first half or second half (after 45 min) of the game, like this:
+      [FIRST HALF] 17: ⚽️ GOAL
+
+GOOD LUCK 😀
+*/
+
+const gameEvents = new Map([
+  [17, '⚽️ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽️ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽️ GOAL'],
+  [80, '⚽️ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+
+//1. IZMENA DODAJ SPRED OPERATOR
+
+const uniqGameEvents = new Set();
+
+for (const [value] of gameEvents) uniqGameEvents.add(gameEvents.get(value));
+
+console.log(uniqGameEvents);
+
+//RESENJE ZA 1.
+const events = [...new Set(gameEvents.values())];
+console.log(events);
+//2.
+gameEvents.delete(64);
+console.log(gameEvents);
+
+let maxNumberGoals = 0;
+let maxNumberSubs = 0;
+let maxNumberYellow = 0;
+let maxNumberRed = 0;
+
+//3.
+for (const [key, event] of gameEvents) {
+  if (event === '⚽️ GOAL') maxNumberGoals++;
+
+  if (event === '🔁 Substitution') maxNumberSubs++;
+
+  if (event === '🔶 Yellow card') maxNumberYellow++;
+
+  if (event === '🔴 Red card') maxNumberRed++;
+}
+
+console.log(maxNumberYellow);
+for (const key of uniqGameEvents) {
+  if (key === '⚽️ GOAL')
+    console.log(
+      `An ${key} happened, on average, every ${90 / maxNumberGoals} minutes"`
+    );
+
+  if (key === '🔁 Substitution')
+    console.log(
+      `An ${key} happened, on average, every ${90 / maxNumberSubs} minutes"`
+    );
+
+  if (key === '🔶 Yellow card')
+    console.log(
+      `An ${key} happened, on average, every ${90 / maxNumberYellow} minutes"`
+    );
+
+  if (key === '🔴 Red card')
+    console.log(
+      `An ${key} happened, on average, every ${90 / maxNumberRed} minutes"`
+    );
+}
+
+// answer of 3 it means for all events thogether
+console.log(`an event happen, on avrage, every ${90 / gameEvents.size}`);
+
+//4.
+for (const [key, value] of gameEvents) {
+  if (key < 45) {
+    console.log(`[FIRST HALF] ${key}: ${value}`);
+  } else {
+    console.log(`[SECOND HALF] ${key}: ${value}`);
+  }
+}
+
+//answer
+
+for (const [key, value] of gameEvents) {
+  const half = key <= 45 ? 'FIRST' : 'SECOND';
+  console.log(`[${half} HALF] ${key}: ${value}`);
+}
