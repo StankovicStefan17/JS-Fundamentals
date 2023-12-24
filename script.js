@@ -353,75 +353,116 @@ const gameEvents = new Map([
   [92, '🔶 Yellow card'],
 ]);
 
-//1. IZMENA DODAJ SPRED OPERATOR
+// //1. IZMENA DODAJ SPRED OPERATOR
 
-const uniqGameEvents = new Set();
+// const uniqGameEvents = new Set();
 
-for (const [value] of gameEvents) uniqGameEvents.add(gameEvents.get(value));
+// for (const [value] of gameEvents) uniqGameEvents.add(gameEvents.get(value));
 
-console.log(uniqGameEvents);
+// console.log(uniqGameEvents);
 
-//RESENJE ZA 1.
-const events = [...new Set(gameEvents.values())];
-console.log(events);
-//2.
-gameEvents.delete(64);
-console.log(gameEvents);
+// //RESENJE ZA 1.
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
+// //2.
+// gameEvents.delete(64);
+// console.log(gameEvents);
 
-let maxNumberGoals = 0;
-let maxNumberSubs = 0;
-let maxNumberYellow = 0;
-let maxNumberRed = 0;
+// let maxNumberGoals = 0;
+// let maxNumberSubs = 0;
+// let maxNumberYellow = 0;
+// let maxNumberRed = 0;
 
-//3.
-for (const [key, event] of gameEvents) {
-  if (event === '⚽️ GOAL') maxNumberGoals++;
+// //3.
+// for (const [key, event] of gameEvents) {
+//   if (event === '⚽️ GOAL') maxNumberGoals++;
 
-  if (event === '🔁 Substitution') maxNumberSubs++;
+//   if (event === '🔁 Substitution') maxNumberSubs++;
 
-  if (event === '🔶 Yellow card') maxNumberYellow++;
+//   if (event === '🔶 Yellow card') maxNumberYellow++;
 
-  if (event === '🔴 Red card') maxNumberRed++;
+//   if (event === '🔴 Red card') maxNumberRed++;
+// }
+
+// console.log(maxNumberYellow);
+// for (const key of uniqGameEvents) {
+//   if (key === '⚽️ GOAL')
+//     console.log(
+//       `An ${key} happened, on average, every ${90 / maxNumberGoals} minutes"`
+//     );
+
+//   if (key === '🔁 Substitution')
+//     console.log(
+//       `An ${key} happened, on average, every ${90 / maxNumberSubs} minutes"`
+//     );
+
+//   if (key === '🔶 Yellow card')
+//     console.log(
+//       `An ${key} happened, on average, every ${90 / maxNumberYellow} minutes"`
+//     );
+
+//   if (key === '🔴 Red card')
+//     console.log(
+//       `An ${key} happened, on average, every ${90 / maxNumberRed} minutes"`
+//     );
+// }
+
+// // answer of 3 it means for all events thogether
+// console.log(`an event happen, on avrage, every ${90 / gameEvents.size}`);
+
+// //4.
+// for (const [key, value] of gameEvents) {
+//   if (key < 45) {
+//     console.log(`[FIRST HALF] ${key}: ${value}`);
+//   } else {
+//     console.log(`[SECOND HALF] ${key}: ${value}`);
+//   }
+// }
+
+// //answer
+
+// for (const [key, value] of gameEvents) {
+//   const half = key <= 45 ? 'FIRST' : 'SECOND';
+//   console.log(`[${half} HALF] ${key}: ${value}`);
+// }
+const airline = `TAP Air Portugal`;
+const plane = `A320`;
+
+console.log(plane[0]);
+
+for (let i = 0; i < plane.length; i++) {
+  console.log(plane[i]);
 }
 
-console.log(maxNumberYellow);
-for (const key of uniqGameEvents) {
-  if (key === '⚽️ GOAL')
-    console.log(
-      `An ${key} happened, on average, every ${90 / maxNumberGoals} minutes"`
-    );
+console.log(airline.length);
+console.log(`b737`.length);
 
-  if (key === '🔁 Substitution')
-    console.log(
-      `An ${key} happened, on average, every ${90 / maxNumberSubs} minutes"`
-    );
+console.log(airline.indexOf('r'));
+console.log(airline.lastIndexOf('r'));
+console.log(airline.indexOf('Portugal'));
 
-  if (key === '🔶 Yellow card')
-    console.log(
-      `An ${key} happened, on average, every ${90 / maxNumberYellow} minutes"`
-    );
+console.log(airline.slice(4, 7));
 
-  if (key === '🔴 Red card')
-    console.log(
-      `An ${key} happened, on average, every ${90 / maxNumberRed} minutes"`
-    );
-}
+console.log(airline.slice(0, airline.indexOf(' ')));
 
-// answer of 3 it means for all events thogether
-console.log(`an event happen, on avrage, every ${90 / gameEvents.size}`);
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
 
-//4.
-for (const [key, value] of gameEvents) {
-  if (key < 45) {
-    console.log(`[FIRST HALF] ${key}: ${value}`);
-  } else {
-    console.log(`[SECOND HALF] ${key}: ${value}`);
-  }
-}
+console.log(airline.slice(-8));
+console.log(airline.slice(-8, -10));
 
-//answer
+console.log(airline.slice(1, -1));
 
-for (const [key, value] of gameEvents) {
-  const half = key <= 45 ? 'FIRST' : 'SECOND';
-  console.log(`[${half} HALF] ${key}: ${value}`);
-}
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+
+  // console.log(seat.slice(seat.length - 1));
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log(`you got middle seat`);
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String(`jonas`));
+console.log(typeof new String(`jonas`).slice(1));
