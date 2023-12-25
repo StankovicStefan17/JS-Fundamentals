@@ -428,41 +428,102 @@ const gameEvents = new Map([
 const airline = `TAP Air Portugal`;
 const plane = `A320`;
 
-console.log(plane[0]);
+// console.log(plane[0]);
 
-for (let i = 0; i < plane.length; i++) {
-  console.log(plane[i]);
-}
+// for (let i = 0; i < plane.length; i++) {
+//   console.log(plane[i]);
+// }
 
-console.log(airline.length);
-console.log(`b737`.length);
+// console.log(airline.length);
+// console.log(`b737`.length);
 
-console.log(airline.indexOf('r'));
-console.log(airline.lastIndexOf('r'));
-console.log(airline.indexOf('Portugal'));
+// console.log(airline.indexOf('r'));
+// console.log(airline.lastIndexOf('r'));
+// console.log(airline.indexOf('Portugal'));
 
-console.log(airline.slice(4, 7));
+// console.log(airline.slice(4, 7));
 
-console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(0, airline.indexOf(' ')));
 
-console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
 
-console.log(airline.slice(-8));
-console.log(airline.slice(-8, -10));
+// console.log(airline.slice(-8));
+// console.log(airline.slice(-8, -10));
 
-console.log(airline.slice(1, -1));
+// console.log(airline.slice(1, -1));
 
-const checkMiddleSeat = function (seat) {
-  // B and E are middle seats
+// const checkMiddleSeat = function (seat) {
+//   // B and E are middle seats
 
-  // console.log(seat.slice(seat.length - 1));
-  const s = seat.slice(-1);
-  if (s === 'B' || s === 'E') console.log(`you got middle seat`);
-};
+//   // console.log(seat.slice(seat.length - 1));
+//   const s = seat.slice(-1);
+//   if (s === 'B' || s === 'E') console.log(`you got middle seat`);
+// };
 
-checkMiddleSeat('11B');
-checkMiddleSeat('23C');
-checkMiddleSeat('3E');
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('3E');
 
-console.log(new String(`jonas`));
-console.log(typeof new String(`jonas`).slice(1));
+// console.log(new String(`jonas`));
+// console.log(typeof new String(`jonas`).slice(1));
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+//fix capitalization in name;
+
+const passenger = 'jOnaAS'; //
+
+const passengerLower = passenger.toLowerCase();
+console.log(passenger);
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+
+console.log(passengerCorrect);
+
+// comaring email
+
+const email = `hello@jonas.io`;
+const loginEmial = `  Hello@jonas.Io \n`;
+
+const lEmailLower = loginEmial.toLowerCase();
+const complEmail = lEmailLower.trim();
+
+console.log(complEmail);
+
+const normlEmail = loginEmial.toLowerCase().trim();
+console.log(normlEmail);
+
+console.log(email === normlEmail);
+
+// replacing
+const priceGB = '288,94e';
+
+const priceUS = priceGB.replace('e', '$').replace(',', '.');
+console.log(priceUS);
+
+const annouce = 'All passangers come to bording door 23. borading door 23';
+
+console.log(annouce.replace('door', 'gate').replace('door', 'gate'));
+
+//new metod
+console.log(annouce.replaceAll('door', 'gate'));
+
+console.log(annouce.replace(/door/g, 'gate'));
+
+// Booleans
+const plane1 = 'Airbus A320neo';
+
+console.log(plane1.includes('neo'));
+console.log(plane1.startsWith('neo'));
+
+if (plane1.startsWith('Airbus') && plane1.endsWith('neo')) console.log('Part');
+
+//Practice exerciese
+const checkBaggage = function (items) {};
+
+checkBaggage('ihave a laptop, some food, pocket knife');
+checkBaggage('gun wit me');
+checkBaggage('only camera');
+
+// nASTAVI NA 3 MINUTA DO KRAJA;
