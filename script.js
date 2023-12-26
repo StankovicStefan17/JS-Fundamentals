@@ -520,10 +520,50 @@ console.log(plane1.startsWith('neo'));
 if (plane1.startsWith('Airbus') && plane1.endsWith('neo')) console.log('Part');
 
 //Practice exerciese
-const checkBaggage = function (items) {};
+const checkBaggage = function (items) {
+  const itemsLower = items.toLowerCase();
+  if (itemsLower.includes('kinfe') || itemsLower.includes('gun')) {
+    console.log('You are not allow aboard!');
+  } else {
+    console.log('You are  allow aboard!');
+  }
+};
 
-checkBaggage('ihave a laptop, some food, pocket knife');
+checkBaggage('ihave a laptop, some Gun, pocket knife');
 checkBaggage('gun wit me');
 checkBaggage('only camera');
 
 // nASTAVI NA 3 MINUTA DO KRAJA;
+
+const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+console.log(letters);
+console.log(letters.toLowerCase());
+
+console.log('a+b+verry+string'.split('+'));
+console.log('Stefan Stankvoic'.split(' '));
+
+const [firstName, LastName] = 'Stefan Stankovic'.split(' ');
+
+console.log(firstName, LastName);
+
+const newName = ['Mr.', firstName, LastName.toUpperCase()].join(' ');
+
+console.log(newName);
+
+const passanger = 'jess ann smith devise';
+
+const capitalizName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const word of names) {
+    // namesUpper.push(word[0].toUpperCase() + word.slice(1));
+
+    namesUpper.push(word.replace(word[0], word[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+
+capitalizName(passanger);
+capitalizName('Alisa strim');
+capitalizName('stfan stankovic sasa dragica una paja');
