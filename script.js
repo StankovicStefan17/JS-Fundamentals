@@ -630,6 +630,54 @@ const convertinCamelCase = function () {
   const text = document.querySelector('textarea').value;
   console.log(text);
   console.log('kliknuto');
+
+  const textSplit = text.split('\n');
+  console.log(textSplit);
+
+  // for (const ts of textSplit) {
+  //   const textTrimAndSplit = ts.toLowerCase().trim();
+
+  //   console.log(textTrimAndSplit);
+
+  //   const index = textTrimAndSplit.indexOf('_');
+  //   console.log(index);
+  //   console.log(textTrimAndSplit[index + 1].toUpperCase());
+  //   console
+  //     .log
+
+  //     //.replace([textTrimAndSplit[index + 1]], '')
+  //     ();
+  //   const textPreFinale = textTrimAndSplit.replace('_', [
+  //     textTrimAndSplit[index + 1].toUpperCase(),
+  //   ]);
+  //   console.log('index x ' + index);
+  //   const textFinale = replaceAt(index + 1, textPreFinale, '');
+
+  //   // textFinale//textPreFinale.replace([textPreFinale[index + 1]], '');
+  //   // console.log(textFinale);
+
+  //   console.log('finale: ' + textFinale);
+  //   // console.log(textPreFinale[index + 1]);
+  // }
+
+  const like = '✅';
+  let i = 1;
+
+  for (const tx of textSplit) {
+    const trimAndLowerCase = tx.toLowerCase().trim();
+    const tAndLSplit = trimAndLowerCase.split('_');
+    const secondCharacterUpper =
+      tAndLSplit[1][0].toUpperCase() + tAndLSplit[1].slice(1);
+
+    const finale = tAndLSplit[0] + secondCharacterUpper;
+
+    console.log(finale.padEnd(20) + '   ' + like.repeat(i));
+    i++;
+  }
+  //const textLowerCase = textSplit.toLowerCase();
+  //console.log(textLowerCase);
+
+  // const textSplit = textLowerCase.split("/n");
 };
 
 button.addEventListener(`click`, convertinCamelCase);
