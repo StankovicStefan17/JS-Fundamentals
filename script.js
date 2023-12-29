@@ -674,6 +674,7 @@ const convertinCamelCase = function () {
     console.log(finale.padEnd(20) + '   ' + like.repeat(i));
     i++;
   }
+  // To je to;
   //const textLowerCase = textSplit.toLowerCase();
   //console.log(textLowerCase);
 
