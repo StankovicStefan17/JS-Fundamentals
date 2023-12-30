@@ -697,7 +697,7 @@ for (const el of flightsSplit) {
     ' '
   )} ${from.substring(0, 3).toUpperCase()} ${to
     .substring(0, 3)
-    .toUpperCase()} (${time.replace(`h`, `:`)})`;
+    .toUpperCase()} (${time.replace(`h`, `:`)})`.padStart(36);
 
   console.log(outputs);
   //console.log(type.startsWith('Delayed'));
