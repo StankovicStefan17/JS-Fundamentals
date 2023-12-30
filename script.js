@@ -682,3 +682,23 @@ const convertinCamelCase = function () {
 };
 
 button.addEventListener(`click`, convertinCamelCase);
+
+const flights =
+  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
+
+const flightsSplit = flights.split('+');
+console.log(flightsSplit);
+
+for (const el of flightsSplit) {
+  const elSplit = el.split(';');
+  const [type, from, to, time] = el.split(`;`);
+  const outputs = `${type.startsWith('_Delayed') ? '🔴' : ''} ${type.replaceAll(
+    '_',
+    ' '
+  )} ${from.substring(0, 3).toUpperCase()} ${to
+    .substring(0, 3)
+    .toUpperCase()} (${time.replace(`h`, `:`)})`;
+
+  console.log(outputs);
+  //console.log(type.startsWith('Delayed'));
+}
