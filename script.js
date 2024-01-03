@@ -59,26 +59,44 @@
 // newPassport(jonas);
 // checkIn(flight, jonas);
 
-const oneWord = function (str) {
-  return str.replace(/ /g, ''.toLowerCase());
+// const oneWord = function (str) {
+//   return str.replace(/ /g, ''.toLowerCase());
+// };
+
+// const upperFirstWord = function (str) {
+//   const [first, ...others] = str.split(' ');
+//   return [first.toUpperCase(), ...others].join(' ');
+// };
+
+// const transformer = function (str, fn) {
+//   console.log(fn(str));
+//   console.log(`transfomerd by: ${fn.name}`);
+// };
+
+// transformer('JavaScript is the best!', upperFirstWord);
+
+// transformer('JavaScript is the best!', oneWord);
+
+// const high5 = function () {
+//   console.log('');
+// };
+
+// console.log(['Jonas', 'martha', 'adam'].forEach(upperFirstWord));
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
 };
 
-const upperFirstWord = function (str) {
-  const [first, ...others] = str.split(' ');
-  return [first.toUpperCase(), ...others].join(' ');
+const gereeterHey = greet('Hey');
+gereeterHey('Jhonas');
+gereeterHey('JhonasStefan');
+
+greet('Hello')('jonas');
+
+const greet1 = greeting => name => {
+  console.log(`${greeting} ${name}`);
 };
 
-const transformer = function (str, fn) {
-  console.log(fn(str));
-  console.log(`transfomerd by: ${fn.name}`);
-};
-
-transformer('JavaScript is the best!', upperFirstWord);
-
-transformer('JavaScript is the best!', oneWord);
-
-const high5 = function () {
-  console.log('');
-};
-
-console.log(['Jonas', 'martha', 'adam'].forEach(upperFirstWord));
+greet1('ola')('Pablo');
