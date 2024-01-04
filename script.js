@@ -83,20 +83,62 @@
 
 // console.log(['Jonas', 'martha', 'adam'].forEach(upperFirstWord));
 
-const greet = function (greeting) {
-  return function (name) {
-    console.log(`${greeting} ${name}`);
-  };
+// const greet = function (greeting) {
+//   return function (name) {
+//     console.log(`${greeting} ${name}`);
+//   };
+// };
+
+// const gereeterHey = greet('Hey');
+// gereeterHey('Jhonas');
+// gereeterHey('JhonasStefan');
+
+// greet('Hello')('jonas');
+
+// const greet1 = greeting => name => {
+//   console.log(`${greeting} ${name}`);
+// };
+
+// greet1('ola')('Pablo');
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode} ${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
 };
 
-const gereeterHey = greet('Hey');
-gereeterHey('Jhonas');
-gereeterHey('JhonasStefan');
+lufthansa.book(23, 'Jonas');
+lufthansa.book(25, 'Stefan');
 
-greet('Hello')('jonas');
-
-const greet1 = greeting => name => {
-  console.log(`${greeting} ${name}`);
+const book = lufthansa.book;
+const eruowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
 };
 
-greet1('ola')('Pablo');
+//book(23, 'SarahaWiliasm');
+//call
+book.call(eruowings, 23, 'saraha');
+book.call(lufthansa, 239, 'Mary cooper');
+console.log(lufthansa);
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 523, 'Stef');
+
+//applay method
+const flightData = [583, 'SD'];
+book.apply(swiss, flightData);
+
+book.call(swiss, ...flightData);
