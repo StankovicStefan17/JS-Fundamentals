@@ -142,3 +142,38 @@ const flightData = [583, 'SD'];
 book.apply(swiss, flightData);
 
 book.call(swiss, ...flightData);
+
+// Bind method
+const bookEW = book.bind(eruowings);
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+bookEW(25, 'steven');
+
+const bookEW23 = book.bind(eruowings);
+bookEW23(26, 'St');
+
+//With Event Listeners
+lufthansa.plane = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.plane++;
+  console.log(this.plane);
+};
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// Partial application
+
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+console.log(addVAT(100));
+
+const addTax1 = value => rate => value + value * rate;
+
+const addVAT1Bind = addTax1(0.23);
+console.log(addVAT1Bind(100));
