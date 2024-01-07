@@ -1,179 +1,101 @@
 'use strict';
 
-// const bookings = [];
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// BANKIST APP
 
-// const createBooking = function (
-//   flightNum,
-//   numPassengers = 1,
-//   price = 199 * numPassengers
-// ) {
-//   //ES5
-//   // numPassengers = numPassengers || 1;
-//   // price = price || 199;
-
-//   const booking = {
-//     flightNum,
-//     numPassengers,
-//     price,
-//   };
-//   console.log(booking);
-//   bookings.push(booking);
-// };
-
-// createBooking(`LH123`);
-// createBooking(`LH123`, 2);
-// createBooking(`LH123`, 5);
-// createBooking(`LH123`, undefined, 50);
-// createBooking(`LH123`, 2, 50);
-
-// const flight = 'LH234';
-
-// const jonas = {
-//   name: 'jonas Schmedetmann',
-//   passport: 24739479284,
-// };
-
-// const checkIn = function (flightNum, passenger) {
-//   flightNum = 'Lh999';
-//   passenger.name = 'Mr. ' + passenger.name;
-
-//   if (passenger.passport === 24739479284) {
-//     alert('Check in');
-//   } else {
-//     alert('Wrong Passport');
-//   }
-// };
-
-// // checkIn(flight, jonas);
-
-// // console.log(flight);
-// // console.log(jonas);
-
-// // const flightNum = flight;
-// // const passenger = jonas;
-
-// const newPassport = function (person) {
-//   person.passport = Math.trunc(Math.random() * 1000000);
-// };
-
-// newPassport(jonas);
-// checkIn(flight, jonas);
-
-// const oneWord = function (str) {
-//   return str.replace(/ /g, ''.toLowerCase());
-// };
-
-// const upperFirstWord = function (str) {
-//   const [first, ...others] = str.split(' ');
-//   return [first.toUpperCase(), ...others].join(' ');
-// };
-
-// const transformer = function (str, fn) {
-//   console.log(fn(str));
-//   console.log(`transfomerd by: ${fn.name}`);
-// };
-
-// transformer('JavaScript is the best!', upperFirstWord);
-
-// transformer('JavaScript is the best!', oneWord);
-
-// const high5 = function () {
-//   console.log('');
-// };
-
-// console.log(['Jonas', 'martha', 'adam'].forEach(upperFirstWord));
-
-// const greet = function (greeting) {
-//   return function (name) {
-//     console.log(`${greeting} ${name}`);
-//   };
-// };
-
-// const gereeterHey = greet('Hey');
-// gereeterHey('Jhonas');
-// gereeterHey('JhonasStefan');
-
-// greet('Hello')('jonas');
-
-// const greet1 = greeting => name => {
-//   console.log(`${greeting} ${name}`);
-// };
-
-// greet1('ola')('Pablo');
-
-const lufthansa = {
-  airline: 'Lufthansa',
-  iataCode: 'LH',
-  bookings: [],
-  book(flightNum, name) {
-    console.log(
-      `${name} booked a seat on ${this.airline} flight ${this.iataCode} ${flightNum}`
-    );
-    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
-  },
+// Data
+const account1 = {
+  owner: 'Jonas Schmedtmann',
+  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  interestRate: 1.2, // %
+  pin: 1111,
 };
 
-lufthansa.book(23, 'Jonas');
-lufthansa.book(25, 'Stefan');
-
-const book = lufthansa.book;
-const eruowings = {
-  airline: 'Eurowings',
-  iataCode: 'EW',
-  bookings: [],
+const account2 = {
+  owner: 'Jessica Davis',
+  movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+  interestRate: 1.5,
+  pin: 2222,
 };
 
-//book(23, 'SarahaWiliasm');
-//call
-book.call(eruowings, 23, 'saraha');
-book.call(lufthansa, 239, 'Mary cooper');
-console.log(lufthansa);
-
-const swiss = {
-  airline: 'Swiss Air Lines',
-  iataCode: 'LX',
-  bookings: [],
+const account3 = {
+  owner: 'Steven Thomas Williams',
+  movements: [200, -200, 340, -300, -20, 50, 400, -460],
+  interestRate: 0.7,
+  pin: 3333,
 };
 
-book.call(swiss, 523, 'Stef');
-
-//applay method
-const flightData = [583, 'SD'];
-book.apply(swiss, flightData);
-
-book.call(swiss, ...flightData);
-
-// Bind method
-const bookEW = book.bind(eruowings);
-const bookLH = book.bind(lufthansa);
-const bookLX = book.bind(swiss);
-bookEW(25, 'steven');
-
-const bookEW23 = book.bind(eruowings);
-bookEW23(26, 'St');
-
-//With Event Listeners
-lufthansa.plane = 300;
-lufthansa.buyPlane = function () {
-  console.log(this);
-
-  this.plane++;
-  console.log(this.plane);
+const account4 = {
+  owner: 'Sarah Smith',
+  movements: [430, 1000, 700, 50, 90],
+  interestRate: 1,
+  pin: 4444,
 };
 
-document
-  .querySelector('.buy')
-  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+const accounts = [account1, account2, account3, account4];
 
-// Partial application
+// Elements
+const labelWelcome = document.querySelector('.welcome');
+const labelDate = document.querySelector('.date');
+const labelBalance = document.querySelector('.balance__value');
+const labelSumIn = document.querySelector('.summary__value--in');
+const labelSumOut = document.querySelector('.summary__value--out');
+const labelSumInterest = document.querySelector('.summary__value--interest');
+const labelTimer = document.querySelector('.timer');
 
-const addTax = (rate, value) => value + value * rate;
-console.log(addTax(0.1, 200));
+const containerApp = document.querySelector('.app');
+const containerMovements = document.querySelector('.movements');
 
-const addVAT = addTax.bind(null, 0.23);
-console.log(addVAT(100));
+const btnLogin = document.querySelector('.login__btn');
+const btnTransfer = document.querySelector('.form__btn--transfer');
+const btnLoan = document.querySelector('.form__btn--loan');
+const btnClose = document.querySelector('.form__btn--close');
+const btnSort = document.querySelector('.btn--sort');
 
-const addTax1 = value => rate => value + value * rate;
+const inputLoginUsername = document.querySelector('.login__input--user');
+const inputLoginPin = document.querySelector('.login__input--pin');
+const inputTransferTo = document.querySelector('.form__input--to');
+const inputTransferAmount = document.querySelector('.form__input--amount');
+const inputLoanAmount = document.querySelector('.form__input--loan-amount');
+const inputCloseUsername = document.querySelector('.form__input--user');
+const inputClosePin = document.querySelector('.form__input--pin');
 
-const addVAT1Bind = addTax1(0.23);
-console.log(addVAT1Bind(100));
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+// LECTURES
+
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+/////////////////////////////////////////////////
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+console.log(arr.slice(3, 4));
+console.log(arr.slice(-1));
+console.log(arr.slice(1, -2));
+console.log(arr.slice(1, -1));
+console.log(arr.slice());
+console.log(arr.slice([...arr]));
+
+// console.log(arr.splice(2));
+arr.splice(-1);
+console.log(arr);
+
+arr.splice();
+
+console.log(arr.reverse());
+console.log(arr);
+
+const arr2 = arr;
+const letters = arr.concat(arr2);
+
+console.log(letters);
+
+///join
+console.log(letters.join('-'));
