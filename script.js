@@ -99,3 +99,15 @@ console.log(letters);
 
 ///join
 console.log(letters.join('-'));
+
+let f;
+
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+g();
+f();
