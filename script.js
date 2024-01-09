@@ -100,6 +100,8 @@ console.log(letters);
 ///join
 console.log(letters.join('-'));
 
+//zaostatak
+
 let f;
 
 const g = function () {
@@ -109,5 +111,32 @@ const g = function () {
   };
 };
 
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
 g();
+
 f();
+h();
+f();
+
+console.dir(f);
+
+//example2
+
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n} passengers`);
+    console.log(`there are 3 groups, each with ${perGroup} passangers`);
+  }, wait * 1000);
+
+  console.log(`will start boarding in ${wait} seconds`);
+};
+const perGroup = 1000;
+boardPassengers(180, 3);
