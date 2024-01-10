@@ -1,5 +1,46 @@
 'use strict';
 
+// //zaostatak
+
+// let f;
+
+// const g = function () {
+//   const a = 23;
+//   f = function () {
+//     console.log(a * 2);
+//   };
+// };
+
+// const h = function () {
+//   const b = 777;
+//   f = function () {
+//     console.log(b * 2);
+//   };
+// };
+
+// g();
+
+// f();
+// h();
+// f();
+
+// console.dir(f);
+
+// //example2
+
+// const boardPassengers = function (n, wait) {
+//   const perGroup = n / 3;
+
+//   setTimeout(function () {
+//     console.log(`We are now boarding all ${n} passengers`);
+//     console.log(`there are 3 groups, each with ${perGroup} passangers`);
+//   }, wait * 1000);
+
+//   console.log(`will start boarding in ${wait} seconds`);
+// };
+// const perGroup = 1000;
+// boardPassengers(180, 3);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // BANKIST APP
@@ -100,43 +141,29 @@ console.log(letters);
 ///join
 console.log(letters.join('-'));
 
-//zaostatak
+const arr23 = [23, 11, 43];
+console.log(arr23[0]);
+console.log(arr23.at(0));
 
-let f;
+console.log(arr23[arr23.length - 1]);
+console.log(arr23.slice(-1));
 
-const g = function () {
-  const a = 23;
-  f = function () {
-    console.log(a * 2);
-  };
-};
+console.log(arr23.at(-1));
+console.log('arr23'.at(-1));
 
-const h = function () {
-  const b = 777;
-  f = function () {
-    console.log(b * 2);
-  };
-};
+for (const movement of movements) {
+  if (movement > 0) {
+    console.log(`You deposited ${movement}`);
+  } else {
+    console.log(`you withdrew ${Math.abs(movement)}`);
+  }
+}
 
-g();
-
-f();
-h();
-f();
-
-console.dir(f);
-
-//example2
-
-const boardPassengers = function (n, wait) {
-  const perGroup = n / 3;
-
-  setTimeout(function () {
-    console.log(`We are now boarding all ${n} passengers`);
-    console.log(`there are 3 groups, each with ${perGroup} passangers`);
-  }, wait * 1000);
-
-  console.log(`will start boarding in ${wait} seconds`);
-};
-const perGroup = 1000;
-boardPassengers(180, 3);
+console.log('-------');
+movements.forEach(function (movement1, i) {
+  if (movement1 > 0) {
+    console.log(`${i}: You deposited ${movement1}`);
+  } else {
+    console.log(`${i}: you withdrew ${Math.abs(movement1)}`);
+  }
+});
