@@ -196,3 +196,44 @@ let arr = ['a', 'b', 'c', 'd', 'e'];
 // });
 
 //start of BANKIST app
+
+//test data julia [3,5,2,12,7], kate [4,1,15,8]
+//test data2 julia [9,16,6,8,3] kate[10,5,6,1,4]
+
+const julia = [3, 5, 2, 12, 7];
+const kate = [4, 1, 15, 8];
+
+const julia2 = [9, 16, 6, 8, 3];
+const kate2 = [10, 5, 6, 1, 4];
+
+//test 1
+const arrayCorrected = function (array1, array2) {
+  return array1.slice(1, -2).concat(array2);
+};
+const juliaCopy = julia.slice(1, -2);
+console.log(julia);
+console.log(juliaCopy);
+
+const JuliaAndKateDataCorrected = arrayCorrected(julia, kate);
+console.log(JuliaAndKateDataCorrected);
+
+// JuliaAndKateDataCorrected.forEach(function (value, i) {
+//   const textForDog =
+//     value >= 3
+//       ? `Dog number ${i + 1} is an adult, and is ${value} years old`
+//       : `Dog number ${i + 1} is still a puppy 🐶`;
+//   console.log(textForDog);
+// });
+
+const checkFunction = function (array1, array2) {
+  const correctedArray = arrayCorrected(array1, array2);
+  correctedArray.forEach(function (value, i) {
+    const textForDog =
+      value >= 3
+        ? `Dog number ${i + 1} is an adult, and is ${value} years old`
+        : `Dog number ${i + 1} is still a puppy 🐶`;
+    console.log(textForDog);
+  });
+};
+
+checkFunction(julia2, kate2);
