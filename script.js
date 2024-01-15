@@ -237,3 +237,5 @@ const checkFunction = function (array1, array2) {
 };
 
 checkFunction(julia2, kate2);
+
+//lecture MAP/FILTER/REDUCE
