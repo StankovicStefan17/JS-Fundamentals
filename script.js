@@ -239,3 +239,11 @@ const checkFunction = function (array1, array2) {
 checkFunction(julia2, kate2);
 
 //lecture MAP/FILTER/REDUCE
+const eurToUSD = 1.1;
+
+const moveUSD = movements.map(function (movement) {
+  return movement * eurToUSD;
+});
+
+console.log(movements);
+console.log(moveUSD);
