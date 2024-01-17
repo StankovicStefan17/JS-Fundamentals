@@ -245,5 +245,20 @@ const moveUSD = movements.map(function (movement) {
   return movement * eurToUSD;
 });
 
-console.log(movements);
-console.log(moveUSD);
+const moveUSD1 = movements.map(movement => movement * eurToUSD);
+
+console.log(moveUSD1);
+// console.log(movements);
+// console.log(moveUSD);
+
+// const movementsUSDfor = [];
+// for (const move of movements) movementsUSDfor.push(move * eurToUSD);
+
+const move123 = movements.map(
+  (move, i) =>
+    `Movement ${i + 1}: You ${move > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+      move
+    )}`
+);
+
+console.log(move123);
