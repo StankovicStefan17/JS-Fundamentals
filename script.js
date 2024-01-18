@@ -120,6 +120,16 @@ const displayMovments = function (movements) {
 
 displayMovments(account1.movements);
 
+const user = `Steven Thomas Williams`; //stw
+const username = user
+  .toLowerCase()
+  .split(' ')
+  .map(name => name[0])
+  .join('')
+  .toUpperCase();
+
+console.log(username);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -200,65 +210,65 @@ let arr = ['a', 'b', 'c', 'd', 'e'];
 //test data julia [3,5,2,12,7], kate [4,1,15,8]
 //test data2 julia [9,16,6,8,3] kate[10,5,6,1,4]
 
-const julia = [3, 5, 2, 12, 7];
-const kate = [4, 1, 15, 8];
+// const julia = [3, 5, 2, 12, 7];
+// const kate = [4, 1, 15, 8];
 
-const julia2 = [9, 16, 6, 8, 3];
-const kate2 = [10, 5, 6, 1, 4];
+// const julia2 = [9, 16, 6, 8, 3];
+// const kate2 = [10, 5, 6, 1, 4];
 
-//test 1
-const arrayCorrected = function (array1, array2) {
-  return array1.slice(1, -2).concat(array2);
-};
-const juliaCopy = julia.slice(1, -2);
-console.log(julia);
-console.log(juliaCopy);
+// //test 1
+// const arrayCorrected = function (array1, array2) {
+//   return array1.slice(1, -2).concat(array2);
+// };
+// const juliaCopy = julia.slice(1, -2);
+// console.log(julia);
+// console.log(juliaCopy);
 
-const JuliaAndKateDataCorrected = arrayCorrected(julia, kate);
-console.log(JuliaAndKateDataCorrected);
+// const JuliaAndKateDataCorrected = arrayCorrected(julia, kate);
+// console.log(JuliaAndKateDataCorrected);
 
-// JuliaAndKateDataCorrected.forEach(function (value, i) {
-//   const textForDog =
-//     value >= 3
-//       ? `Dog number ${i + 1} is an adult, and is ${value} years old`
-//       : `Dog number ${i + 1} is still a puppy 🐶`;
-//   console.log(textForDog);
+// // JuliaAndKateDataCorrected.forEach(function (value, i) {
+// //   const textForDog =
+// //     value >= 3
+// //       ? `Dog number ${i + 1} is an adult, and is ${value} years old`
+// //       : `Dog number ${i + 1} is still a puppy 🐶`;
+// //   console.log(textForDog);
+// // });
+
+// const checkFunction = function (array1, array2) {
+//   const correctedArray = arrayCorrected(array1, array2);
+//   correctedArray.forEach(function (value, i) {
+//     const textForDog =
+//       value >= 3
+//         ? `Dog number ${i + 1} is an adult, and is ${value} years old`
+//         : `Dog number ${i + 1} is still a puppy 🐶`;
+//     console.log(textForDog);
+//   });
+// };
+
+// checkFunction(julia2, kate2);
+
+// //lecture MAP/FILTER/REDUCE
+// const eurToUSD = 1.1;
+
+// const moveUSD = movements.map(function (movement) {
+//   return movement * eurToUSD;
 // });
 
-const checkFunction = function (array1, array2) {
-  const correctedArray = arrayCorrected(array1, array2);
-  correctedArray.forEach(function (value, i) {
-    const textForDog =
-      value >= 3
-        ? `Dog number ${i + 1} is an adult, and is ${value} years old`
-        : `Dog number ${i + 1} is still a puppy 🐶`;
-    console.log(textForDog);
-  });
-};
+// const moveUSD1 = movements.map(movement => movement * eurToUSD);
 
-checkFunction(julia2, kate2);
+// console.log(moveUSD1);
+// // console.log(movements);
+// // console.log(moveUSD);
 
-//lecture MAP/FILTER/REDUCE
-const eurToUSD = 1.1;
+// // const movementsUSDfor = [];
+// // for (const move of movements) movementsUSDfor.push(move * eurToUSD);
 
-const moveUSD = movements.map(function (movement) {
-  return movement * eurToUSD;
-});
+// const move123 = movements.map(
+//   (move, i) =>
+//     `Movement ${i + 1}: You ${move > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+//       move
+//     )}`
+// );
 
-const moveUSD1 = movements.map(movement => movement * eurToUSD);
-
-console.log(moveUSD1);
-// console.log(movements);
-// console.log(moveUSD);
-
-// const movementsUSDfor = [];
-// for (const move of movements) movementsUSDfor.push(move * eurToUSD);
-
-const move123 = movements.map(
-  (move, i) =>
-    `Movement ${i + 1}: You ${move > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
-      move
-    )}`
-);
-
-console.log(move123);
+// console.log(move123);
