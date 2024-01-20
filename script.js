@@ -120,6 +120,13 @@ const displayMovments = function (movements) {
 
 displayMovments(account1.movements);
 
+const calcPrintBalance = function (movements) {
+  const balance = movements.reduce((acc, curr) => acc + curr, 0);
+  labelBalance.textContent = `${balance}€`;
+};
+
+calcPrintBalance(account1.movements);
+
 const user = `Steven Thomas Williams`; //stw
 
 const createUsernames = function (accs) {
@@ -134,6 +141,7 @@ const createUsernames = function (accs) {
 
 createUsernames(accounts);
 console.log(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -283,3 +291,12 @@ console.log(withdrawal);
 // );
 
 // console.log(move123);
+
+const balance = movements.reduce((acc, current) => acc + current, 0);
+console.log(balance);
+
+const maxValue = movements.reduce((acc, curr) => {
+  acc > curr ? acc : curr, 0;
+});
+
+console.log(maxValue);
