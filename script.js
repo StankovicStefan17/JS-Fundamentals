@@ -292,11 +292,41 @@ console.log(withdrawal);
 
 // console.log(move123);
 
-const balance = movements.reduce((acc, current) => acc + current, 0);
-console.log(balance);
+// const balance = movements.reduce((acc, current) => acc + current, 0);
+// console.log(balance);
 
-const maxValue = movements.reduce((acc, curr) => {
-  acc > curr ? acc : curr, 0;
-});
+// const maxValue = movements.reduce((acc, curr) => {
+//   acc > curr ? acc : curr, 0;
+// });
 
-console.log(maxValue);
+// console.log(maxValue);
+
+const testData1 = [5, 2, 4, 1, 15, 8, 3];
+const testData2 = [16, 6, 10, 5, 6, 1, 4];
+
+const calcAverageHumanAge = function (array) {
+  const dogInHumanAge = array.map(function (curr) {
+    if (curr <= 2) {
+      return curr * 2;
+    } else {
+      return 16 + curr * 4;
+    }
+  });
+  console.log(dogInHumanAge);
+  const excludedDogs = dogInHumanAge.filter(function (dog) {
+    return dog >= 18;
+  });
+  console.log(excludedDogs);
+
+  const avrageAgeOfDogs = function (array) {
+    const acc = array.reduce(function (acc, dog) {
+      return acc + dog;
+    });
+
+    return acc / array.length;
+  };
+
+  return avrageAgeOfDogs(excludedDogs);
+};
+
+console.log(calcAverageHumanAge(testData1));
