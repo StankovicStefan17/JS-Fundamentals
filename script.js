@@ -305,6 +305,7 @@ const testData1 = [5, 2, 4, 1, 15, 8, 3];
 const testData2 = [16, 6, 10, 5, 6, 1, 4];
 
 const calcAverageHumanAge = function (array) {
+  //1.
   const dogInHumanAge = array.map(function (curr) {
     if (curr <= 2) {
       return curr * 2;
@@ -313,15 +314,18 @@ const calcAverageHumanAge = function (array) {
     }
   });
   console.log(dogInHumanAge);
+
+  //2.
   const excludedDogs = dogInHumanAge.filter(function (dog) {
     return dog >= 18;
   });
   console.log(excludedDogs);
 
+  //3.
   const avrageAgeOfDogs = function (array) {
     const acc = array.reduce(function (acc, dog) {
       return acc + dog;
-    });
+    }, 0);
 
     return acc / array.length;
   };
@@ -330,3 +334,4 @@ const calcAverageHumanAge = function (array) {
 };
 
 console.log(calcAverageHumanAge(testData1));
+console.log(calcAverageHumanAge(testData2));
