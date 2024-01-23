@@ -335,3 +335,11 @@ const calcAverageHumanAge = function (array) {
 
 console.log(calcAverageHumanAge(testData1));
 console.log(calcAverageHumanAge(testData2));
+
+const eurToUSD1 = 1.1;
+const totalDepositsUS = movements
+  .filter(mov => mov > 0)
+  .map(mov => mov * eurToUSD1)
+  .reduce((acc, move) => acc + move, 0);
+
+console.log(totalDepositsUS);
