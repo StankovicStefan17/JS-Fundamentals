@@ -354,6 +354,14 @@ const calcAverageHumanAge = function (array) {
   return avrageAgeOfDogs(excludedDogs);
 };
 
+const calcAverageHumanAge1 = array =>
+  array
+    .map(age => (age <= 2 ? age * 2 : 16 + age * 4))
+    .filter(age => age >= 18)
+    .reduce((ukp, age, i, array) => ukp + age / array.length, 0);
+
+console.log(' ' + calcAverageHumanAge1(testData1));
+
 console.log(calcAverageHumanAge(testData1));
 console.log(calcAverageHumanAge(testData2));
 
