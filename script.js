@@ -185,6 +185,24 @@ const deposit = movements.filter(function (mov) {
 const withdrawal = movements.filter(mov => mov < 0);
 console.log(deposit);
 console.log(withdrawal);
+
+//event handler
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+  console.log('Login');
+
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    console.log('Login');
+  }
+});
+
 // console.log(arr.slice(3, 4));
 // console.log(arr.slice(-1));
 // console.log(arr.slice(1, -2));
@@ -322,62 +340,64 @@ console.log(withdrawal);
 
 // console.log(maxValue);
 
-const testData1 = [5, 2, 4, 1, 15, 8, 3];
-const testData2 = [16, 6, 10, 5, 6, 1, 4];
+// const testData1 = [5, 2, 4, 1, 15, 8, 3];
+// const testData2 = [16, 6, 10, 5, 6, 1, 4];
 
-const calcAverageHumanAge = function (array) {
-  //1.
-  const dogInHumanAge = array.map(function (curr) {
-    if (curr <= 2) {
-      return curr * 2;
-    } else {
-      return 16 + curr * 4;
-    }
-  });
-  console.log(dogInHumanAge);
+// const calcAverageHumanAge = function (array) {
+//   //1.
+//   const dogInHumanAge = array.map(function (curr) {
+//     if (curr <= 2) {
+//       return curr * 2;
+//     } else {
+//       return 16 + curr * 4;
+//     }
+//   });
+//   console.log(dogInHumanAge);
 
-  //2.
-  const excludedDogs = dogInHumanAge.filter(function (dog) {
-    return dog >= 18;
-  });
-  console.log(excludedDogs);
+//   //2.
+//   const excludedDogs = dogInHumanAge.filter(function (dog) {
+//     return dog >= 18;
+//   });
+//   console.log(excludedDogs);
 
-  //3.
-  const avrageAgeOfDogs = function (array) {
-    const acc = array.reduce(function (acc, dog) {
-      return acc + dog;
-    }, 0);
+//   //3.
+//   const avrageAgeOfDogs = function (array) {
+//     const acc = array.reduce(function (acc, dog) {
+//       return acc + dog;
+//     }, 0);
 
-    return acc / array.length;
-  };
+//     return acc / array.length;
+//   };
 
-  return avrageAgeOfDogs(excludedDogs);
-};
+//   return avrageAgeOfDogs(excludedDogs);
+// };
 
-const calcAverageHumanAge1 = array =>
-  array
-    .map(age => (age <= 2 ? age * 2 : 16 + age * 4))
-    .filter(age => age >= 18)
-    .reduce((ukp, age, i, array) => ukp + age / array.length, 0);
+// const calcAverageHumanAge1 = array =>
+//   array
+//     .map(age => (age <= 2 ? age * 2 : 16 + age * 4))
+//     .filter(age => age >= 18)
+//     .reduce((ukp, age, i, array) => ukp + age / array.length, 0);
 
-console.log(' ' + calcAverageHumanAge1(testData1));
+// console.log(' ' + calcAverageHumanAge1(testData1));
 
-console.log(calcAverageHumanAge(testData1));
-console.log(calcAverageHumanAge(testData2));
+// console.log(calcAverageHumanAge(testData1));
+// console.log(calcAverageHumanAge(testData2));
 
-const eurToUSD1 = 1.1;
-const totalDepositsUS = movements
-  .filter(mov => mov > 0)
-  .map(mov => mov * eurToUSD1)
-  .reduce((acc, move) => acc + move, 0);
+// const eurToUSD1 = 1.1;
+// const totalDepositsUS = movements
+//   .filter(mov => mov > 0)
+//   .map(mov => mov * eurToUSD1)
+//   .reduce((acc, move) => acc + move, 0);
 
-console.log(totalDepositsUS);
+// console.log(totalDepositsUS);
 
-const firstWithdrawal = movements.find(move => move < 0);
-console.log(movements);
-console.log(firstWithdrawal);
+// const firstWithdrawal = movements.find(move => move < 0);
+// console.log(movements);
+// console.log(firstWithdrawal);
 
-console.log(accounts);
-const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+// console.log(accounts);
+// const account = accounts.find(acc => acc.owner === 'Jessica Davis');
 
-console.log(account);
+// console.log(account);
+
+///
