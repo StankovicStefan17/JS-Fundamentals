@@ -118,35 +118,30 @@ const displayMovments = function (movements) {
   });
 };
 
-displayMovments(account1.movements);
-
 const calcPrintBalance = function (movements) {
   const balance = movements.reduce((acc, curr) => acc + curr, 0);
   labelBalance.textContent = `${balance}€`;
 };
 
-calcPrintBalance(account1.movements);
-
-const calcDisplaySummary = function (movements) {
-  const incomes = movements
+const calcDisplaySummary = function (acc) {
+  const incomes = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `${incomes}€`;
 
-  const out = movements
+  const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, move) => acc + move);
 
   labelSumOut.textContent = `${Math.abs(out)}€`;
 
-  const intrest = movements
+  const intrest = acc.movements
     .filter(mov => mov > 0)
-    .map(deposit => (deposit * 1.2) / 100)
+    .map(deposit => (deposit * acc.interestRate) / 100)
     .filter(int => int >= 1)
     .reduce((acc, int) => acc + int, 0);
   labelSumInterest.textContent = `${intrest}€`;
 };
-calcDisplaySummary(account1.movements);
 
 const user = `Steven Thomas Williams`; //stw
 
@@ -200,6 +195,22 @@ btnLogin.addEventListener('click', function (e) {
 
   if (currentAccount?.pin === Number(inputLoginPin.value)) {
     console.log('Login');
+    //disply UI and Message
+    labelWelcome.textContent = `Welcom back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+    containerApp.style.opacity = 100;
+
+    //ClearInputFIelds:
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+
+    // display movements;
+    displayMovments(currentAccount.movements);
+    //display Balance;
+    calcPrintBalance(currentAccount.movements);
+    //Display Summary
+    calcDisplaySummary(currentAccount);
   }
 });
 
