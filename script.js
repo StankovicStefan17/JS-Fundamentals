@@ -214,6 +214,16 @@ btnLogin.addEventListener('click', function (e) {
   }
 });
 
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => acc.username === inputTransferTo.value
+  );
+  console.log(amount, receiverAcc);
+});
+
 // console.log(arr.slice(3, 4));
 // console.log(arr.slice(-1));
 // console.log(arr.slice(1, -2));
