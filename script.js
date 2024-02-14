@@ -455,3 +455,7 @@ btnClose.addEventListener('click', function (e) {
 // console.log(account);
 
 ///
+
+console.log(movements.includes(-130));
+
+console.log(movements.some(mov => mov > 0));
